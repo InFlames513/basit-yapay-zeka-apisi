@@ -25,5 +25,3 @@ app.get('/:msg', (req, res) => {
     else if(m.toLowerCase().includes("tatlısın") || m.toLowerCase().includes("tatlisin")) return res.json({message: 'Ayy, sende çok tatlısın.'});
     else { res.json({message: 'Çok garip bir konuşma tarzın var?'}) }
 })
-
-app.listen(process.env.PORT)
