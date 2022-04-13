@@ -26,4 +26,5 @@ app.get('/:msg', (req, res) => {
     else { res.json({message: 'Çok garip bir konuşma tarzın var?'}) }
 })
 
-app.listen(process.env.PORT)
+app.listen(3000)
+console.log("Site http://localhost:3000/ adresinde aktif.")
