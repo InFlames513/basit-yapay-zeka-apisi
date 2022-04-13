@@ -26,4 +26,4 @@ app.get('/:msg', (req, res) => {
     else { res.json({message: 'Çok garip bir konuşma tarzın var?'}) }
 })
 
-app.listen(5000)
+app.listen(process.env.PORT)
