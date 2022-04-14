@@ -5,8 +5,10 @@ const app = express()
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-app.get('/:msg', (req, res) => {
+app.get("/", (req, res) => {
+    res.send({ message: 'Eee konuşmayacak mısın?'})
+})
+app.get('/cevap/:msg', (req, res) => {
     var m = req.params.msg;
     if(m.toLowerCase().includes("günaydın")) return res.json({message: 'Günaydın! Nasılsın?'});
     else if(m == "sa" || m.toLowerCase().includes("selamün") || m.toLowerCase().includes("selaymün")) return res.json({message: 'Aleyüm selam'});
@@ -26,5 +28,6 @@ app.get('/:msg', (req, res) => {
     else { res.json({message: 'Çok garip bir konuşma tarzın var?'}) }
 })
 
-app.listen(3000)
-console.log("Site http://localhost:3000/ adresinde aktif.")
+const listener = app.listen(process.env.PORT, () => {
+    console.log("Starting " + listener.address().port);
+  });
